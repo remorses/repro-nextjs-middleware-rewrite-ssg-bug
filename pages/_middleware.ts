@@ -1,14 +1,17 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 export default function middleware(req: NextRequest) {
-    const { pathname } = req.nextUrl
+    const { pathname, basePath } = req.nextUrl
 
     const hostname = req.headers.get('host')?.replace(/:\d+$/, '')
 
-    return NextResponse.rewrite(
-        new URL(
-            `/app/_hosts/${hostname}${pathname}`,
-            req.nextUrl.origin,
-        ).toString(),
-    )
+    // does not work
+    // new URL(`/_hosts/${hostname}${pathname}`,req.nextUrl.origin,).toString()
+
+    // does not work
+    // `/_hosts/${hostname}${pathname}` 
+
+    
+
+    return NextResponse.rewrite(`/_hosts/${hostname}${pathname}`)
 }
