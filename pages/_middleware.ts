@@ -7,7 +7,7 @@ export default function middleware(req: NextRequest) {
 
     return NextResponse.rewrite(
         new URL(
-            `/_hosts/${hostname}${pathname}`,
+            `/app/_hosts/${hostname}${pathname}`,
             req.nextUrl.origin,
         ).toString(),
     )
