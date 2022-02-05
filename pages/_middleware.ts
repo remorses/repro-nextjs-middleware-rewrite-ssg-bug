@@ -8,10 +8,9 @@ export default function middleware(req: NextRequest) {
     // does not work
     // `/_hosts/${hostname}${pathname}`
 
-    const localePath = locale === defaultLocale ? '' : `/${locale}`
     return NextResponse.rewrite(
         new URL(
-            `${basePath}${localePath}/_hosts/${hostname}${pathname}`,
+            `${basePath}/${locale}/_hosts/${hostname}${pathname}`,
             req.nextUrl.origin,
         ).toString(),
     )
