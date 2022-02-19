@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps } from 'next'
+import Link from 'next/link'
 
 export const getStaticPaths: GetStaticPaths = async (context) => {
     return {
@@ -18,6 +19,8 @@ export default function Page({ host }) {
             <h1>
                 Your host is <code>{host}</code>
             </h1>
+            <Link href='/a'>Path A</Link>
+            <Link href='/b'>Path B</Link>
         </div>
     )
 }
