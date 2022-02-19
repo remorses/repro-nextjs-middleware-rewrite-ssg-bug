@@ -19,9 +19,14 @@ export default function Page({ host }) {
             <h1>
                 Your host is <code>{host}</code>
             </h1>
-            <Link href='/'>Path /</Link>
-            <Link href='/a'>Path A</Link>
-            <Link href='/b'>Path B</Link>
+            <div
+                className=''
+                style={{ display: 'flex', flexDirection: 'column' }}
+            >
+                <Link href='/'>Path /</Link>
+                <Link href='/a'>Path A</Link>
+                <Link href='/b'>Path B</Link>
+            </div>
         </div>
     )
 }
