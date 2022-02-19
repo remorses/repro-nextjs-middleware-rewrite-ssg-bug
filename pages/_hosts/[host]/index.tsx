@@ -10,7 +10,7 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
 export const getStaticProps: GetStaticProps = async (context) => {
     const host = context.params!.host
 
-    return { props: { host }, revalidate: 1 }
+    return { props: { host }, revalidate: 5 }
 }
 export default function Page({ host }) {
     return (
