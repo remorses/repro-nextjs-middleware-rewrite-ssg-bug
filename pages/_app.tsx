@@ -19,10 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 function C() {
-    const [state, setState] = useState(0)
-    useEffect(() => {
-        setState((x) => x + 1)
-    }, [])
+    const [state, setState] = useState(() => Math.random())
     return <div className=''>{state}</div>
 }
 
