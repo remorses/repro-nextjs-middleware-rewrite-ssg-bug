@@ -5,8 +5,9 @@ export default function middleware(req: NextRequest) {
 
     const hostname = req.headers.get('host')?.replace(/:\d+$/, '')
 
-    // does not work
-    // `/_hosts/${hostname}${pathname}`
+    if (pathname.startsWith('/api') || pathname.startsWith('/_hosts')) {
+        return
+    }
 
     return NextResponse.rewrite(
         new URL(
