@@ -17,7 +17,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
     }
 }
 export default function Page({ host, revalidatedAt }) {
-    const router = useRouter()
     return (
         <div>
             <h1>
