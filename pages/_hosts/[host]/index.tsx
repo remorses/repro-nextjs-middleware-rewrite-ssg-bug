@@ -11,15 +11,21 @@ export const getStaticPaths: GetStaticPaths = async (context) => {
 export const getStaticProps: GetStaticProps = async (context) => {
     const host = context.params!.host
 
-    return { props: { host }, revalidate: 1 }
+    return {
+        props: { host, revalidatedAt: new Date().toISOString() },
+        revalidate: false,
+    }
 }
-export default function Page({ host }) {
+export default function Page({ host, revalidatedAt }) {
     const router = useRouter()
     return (
         <div>
             <h1>
                 Your host is <code>{host}</code>
             </h1>
+            <p>
+                getStaticProps run at <code>{revalidatedAt}</code>
+            </p>
             <button
                 onClick={async () => {
                     const res = await fetch(
