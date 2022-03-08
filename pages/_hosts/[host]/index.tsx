@@ -30,7 +30,7 @@ export default function Page({ host, revalidatedAt }) {
                 onClick={async () => {
                     const res = await fetch(
                         `/api/revalidate?path=${encodeURIComponent(
-                            '/_hosts/' + host + '/',
+                            '/_hosts/' + host,
                         )}`,
                         {
                             method: 'POST',
